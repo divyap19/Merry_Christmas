@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas ❤️</title>
+
+<!-- Great Vibes Stylish Font -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0; padding:0; box-sizing:border-box;}
+
+body{
+  height:100vh;
+  background: radial-gradient(circle at top,#7f1d1d,#450a0a,#1f0707);
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fee2e2;
+}
+
+/* Snow */
+.snow{
+  position:absolute;
+  top:-10px;
+  color:#fecaca;
+  animation: fall linear infinite;
+}
+@keyframes fall{ to{ transform:translateY(110vh); } }
+
+/* Red Sparkles */
+.sparkle{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:#fca5a5;
+  border-radius:50%;
+  box-shadow:0 0 15px #f87171;
+  animation: blink 1.5s infinite alternate;
+}
+@keyframes blink{ from{ opacity:0.3 } to{ opacity:1 } }
+
+/* Card */
+.card{
+  position:relative;
+  width:440px;
+  padding:45px;
+  border-radius:30px;
+  background: rgba(220,38,38,0.18);
+  backdrop-filter: blur(12px);
+  box-shadow:0 0 60px rgba(248,113,113,0.6);
+  text-align:center;
+  animation: pop 1.4s ease;
+}
+@keyframes pop{ from{ transform:scale(0.75); opacity:0 } to{ transform:scale(1); opacity:1 } }
+
+/* Stylish Merry Christmas */
+.card h1{
+  font-family: 'Great Vibes', cursive;
+  font-size:4rem;
+  color:#fee2e2;
+  text-shadow:0 0 20px #f87171, 0 0 35px #dc2626;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+/* Tree */
+.tree{
+  font-size:95px;
+  margin:18px 0;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow{
+  from{ filter:drop-shadow(0 0 10px #f87171); }
+  to{ filter:drop-shadow(0 0 35px #fecaca); }
+}
+
+/* Santa */
+.santa{
+  position:absolute;
+  top:-65px;
+  right:-55px;
+  font-size:75px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-14px); } }
+
+/* Snow Dolls */
+.snowman{
+  position:absolute;
+  bottom:35px;
+  font-size:75px;
+  filter: drop-shadow(0 0 10px #fecaca);
+  animation: snowmanBounce 3s ease-in-out infinite;
+}
+
+.snowman.one{ left:30px; }
+.snowman.two{ left:120px; animation-delay:.5s; }
+.snowman.three{ right:120px; animation-delay:1s; }
+.snowman.four{ right:30px; animation-delay:1.5s; }
+
+@keyframes snowmanBounce{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+
+</style>
+</head>
+<body>
+
+<!-- Snow Dolls -->
+
+<div class="snowman two">⛄</div>
+<div class="snowman three">⛄</div>
+
+
+<!-- Card -->
+<div class="card">
+  <div class="santa">🎅</div>
+  <h1>Merry Christmas</h1>
+  <div class="tree">🎄</div>
+  <p>
+    May your Christmas be filled with <br>
+     joy and happiness!✨<br>
+  </p>
+</div>
+
+<script>
+// Snowfall
+function snow(){
+  const s=document.createElement("div");
+  s.className="snow";
+  s.innerHTML="❄";
+  s.style.left=Math.random()*window.innerWidth+"px";
+  s.style.fontSize=Math.random()*14+10+"px";
+  s.style.opacity=Math.random();
+  s.style.animationDuration=Math.random()*6+4+"s";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),9000);
+}
+setInterval(snow,140);
+
+// Red sparkles
+for(let i=0;i<25;i++){
+  const sp=document.createElement("div");
+  sp.className="sparkle";
+  sp.style.left=Math.random()*100+"%";
+  sp.style.top=Math.random()*100+"%";
+  sp.style.animationDelay=Math.random()*2+"s";
+  document.body.appendChild(sp);
+}
+</script>
+
+</body>
+</html>
